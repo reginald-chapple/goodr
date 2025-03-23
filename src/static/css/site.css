@@ -1,0 +1,54 @@
+:root {
+    --primary-color: #4A90E2;
+    --primary-color-hsl: 217, 76%, 57%;
+    --secondary-color: #16A085;
+    --background-color: #f8f9fa;
+    --navbar-bg: #343a40;
+    --sidebar-bg: #f8f9fa;
+    --text-color: #212529;
+    --card-bg: #ffffff;
+    --card-title-color: var(--primary-color);
+    --success-color: #27AE60;
+    --warning-color: #F39C12;
+    --danger-color: #E74C3C;
+}
+
+.dark-mode {
+    --primary-color: #1E3A8A;
+    --primary-color-hsl: 217, 86%, 40%;
+    --secondary-color: #0E6655;
+    --background-color: #121212;
+    --navbar-bg: #1C1C1C;
+    --sidebar-bg: #1C1C1C;
+    --text-color: #EAEAEA;
+    --card-bg: #1E1E1E;
+    --card-title-color: #2ECC71;
+}
+
+body {
+    margin-bottom: 60px;
+    padding-top: 5rem;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: all 0.3s ease-in-out;
+    font-family: 'Inter', sans-serif;
+}
+
+.avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    /* Bootstrap primary color */
+}
+
+.no-caret .dropdown-toggle::after {
+    display: none !important;
+    /* Hides the default arrow */
+}
+

@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Reginald Chapple">
+    <title>Qru Wrq |  {% block title %}{% endblock title %}</title>
+    <link href="{% static "vendors/bootstrap-icons/font/bootstrap-icons.min.css" %}" rel="stylesheet" />
+    <link href="{% static "vendors/bootstrap/src/css/bootstrap.min.css" %}" rel="stylesheet" />
+    <link href="{% static "css/site.css" %}" rel="stylesheet" />
+    {% block styles %}{% endblock styles %}
+    {% block styletag %}{% endblock styletag %}
+  </head>
+  <body style="margin-bottom: 75rem">
+      {% include "partials/_navbar.html" %}
+
+      <div class="container-fluid">
+        <div class="main p-3">
+          {% block content %}{% endblock content %}
+        </div>
+      </div>
+
+      {% if request.user.is_authenticated %}
+        {% include "partials/_appbar.html" %}
+      {% endif %}
+
+      <script src="{% static "vendors/bootstrap/src/js/bootstrap.bundle.min.js" %}"></script>
+      {% comment %} <script src="{% static "js/app.js" %}"></script> {% endcomment %}
+      {% block javascript %}{% endblock javascript %}
+      {% block scripttag %}{% endblock scripttag %}
+  </body>
+</html>

@@ -1,0 +1,57 @@
+{% extends 'dashboard.html' %}
+{% load static %}
+
+{% block title %}
+Home
+{% endblock title %}
+
+{% block content %}
+<div class="row">
+    <!-- Dashboard Cards -->
+    <div class="col-md-4">
+        <div class="card text-white bg-primary mb-3">
+            <div class="card-body">
+                <h5 class="card-title">Active Tasks</h5>
+                <p class="card-text">12</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card text-white bg-success mb-3">
+            <div class="card-body">
+                <h5 class="card-title">Completed Today</h5>
+                <p class="card-text">8</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card text-white bg-danger mb-3">
+            <div class="card-body">
+                <h5 class="card-title">Overdue Tasks</h5>
+                <p class="card-text">3</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Recent Tasks Table -->
+<div class="card">
+    <div class="card-header bg-secondary text-white">Recent Tasks</div>
+    <div class="card-body">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Task</th>
+                    <th>Status</th>
+                    <th>Assigned</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Room Cleaning</td><td><span class="badge bg-warning">Pending</span></td><td>John Doe</td></tr>
+                <tr><td>Maintenance Check</td><td><span class="badge bg-success">Completed</span></td><td>Jane Smith</td></tr>
+                <tr><td>Supply Restock</td><td><span class="badge bg-danger">Overdue</span></td><td>Mike Brown</td></tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

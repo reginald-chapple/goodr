@@ -1,4 +1,4 @@
-{% extends 'dashboard.html' %}
+{% extends 'base.html' %}
 {% load static %}
 
 {% block title %}
@@ -6,52 +6,14 @@ Home
 {% endblock title %}
 
 {% block content %}
-<div class="row">
-    <!-- Dashboard Cards -->
-    <div class="col-md-4">
-        <div class="card text-white bg-primary mb-3">
-            <div class="card-body">
-                <h5 class="card-title">Active Tasks</h5>
-                <p class="card-text">12</p>
+<section class="bg-body-emphasis pb-8" id="home">
+    <div class="container-small hero-header-container px-lg-7 px-xxl-3">
+        <div class="row align-items-center">
+            <div class="col-12 col-lg-6 text-lg-start text-center pt-8 pb-6 order-0 position-relative">
+                <h1 class="fs-3 fs-lg-2 fs-md-1 fs-lg-2 fs-xl-1 fs fw-black mb-4"><span class="text-primary me-3">Goodr</span>for<br />a better world</h1>
+                <p class="mb-5">Standard, modern and Elegant solution for your next web app so you don’t have to look further. Sign up or check the demo below.</p><a class="btn btn-lg btn-primary rounded-pill me-3" href="#!" role="button">Sign up</a><a class="btn btn-link me-2 fs-8 p-0" href="#!" role="button">Check Demo<span class="fa-solid fa-angle-right ms-2 fs-9"></span></a>
             </div>
         </div>
     </div>
-    <div class="col-md-4">
-        <div class="card text-white bg-success mb-3">
-            <div class="card-body">
-                <h5 class="card-title">Completed Today</h5>
-                <p class="card-text">8</p>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="card text-white bg-danger mb-3">
-            <div class="card-body">
-                <h5 class="card-title">Overdue Tasks</h5>
-                <p class="card-text">3</p>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Recent Tasks Table -->
-<div class="card">
-    <div class="card-header bg-secondary text-white">Recent Tasks</div>
-    <div class="card-body">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Task</th>
-                    <th>Status</th>
-                    <th>Assigned</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr><td>Room Cleaning</td><td><span class="badge bg-warning">Pending</span></td><td>John Doe</td></tr>
-                <tr><td>Maintenance Check</td><td><span class="badge bg-success">Completed</span></td><td>Jane Smith</td></tr>
-                <tr><td>Supply Restock</td><td><span class="badge bg-danger">Overdue</span></td><td>Mike Brown</td></tr>
-            </tbody>
-        </table>
-    </div>
-</div>
+</section>
 {% endblock %}

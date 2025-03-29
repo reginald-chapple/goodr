@@ -1,4 +1,4 @@
-{% extends 'auth.html' %}
+{% extends 'base.html' %}
 {% load static %}
 
 {% block title %}
@@ -6,51 +6,32 @@ Login
 {% endblock title %}
 
 {% block content %}
-<div class="text-center mb-7">
-    <h3 class="text-body-highlight">Sign In</h3>
-    <p class="text-body-tertiary">Get access to your account</p>
-</div>
+<main>
+    <div class="container">
+        <div class="row justify-content-center align-items-center vh-100 py-5">
+            <div class="col-sm-10 col-md-8 col-lg-7 col-xl-6 col-xxl-5">
+                <div class="card card-body text-center p-4 p-sm-5">
+                    <h1 class="mb-2">Sign in</h1>
+                    <p class="mb-0">Don't have an account?<a href="#"> Click here to sign up</a></p>
 
-<form method="POST">
-    {% csrf_token %}
-    <input type="hidden" name="next" value="{{ next }}">
-    <div class="mb-3 text-start">
-        <label class="form-label" for="id_username">User name</label>
-        <div class="form-icon-container">
-            <input class="form-control form-icon-input" name="username" id="id_username" type="text" placeholder="username" required />
-            <span class="fas fa-user text-body fs-9 form-icon"></span>
-        </div>
-    </div>
-    <div class="mb-3 text-start">
-        <label class="form-label" for="id_password">Password</label>
-        <div class="form-icon-container" data-password="data-password">
-            <input class="form-control form-icon-input pe-6" name="password" id="id_password" type="password" placeholder="Password" data-password-input="data-password-input" required />
-            <span class="fas fa-key text-body fs-9 form-icon"></span>
-            <button class="btn px-3 py-0 h-100 position-absolute top-0 end-0 fs-7 text-body-tertiary" data-password-toggle="data-password-toggle">
-                <span class="uil uil-eye show"></span>
-                <span class="uil uil-eye-slash hide"></span>
-            </button>
-        </div>
-    </div>
-    <div class="row flex-between-center mb-7">
-        <div class="col-auto">
-            <div class="form-check mb-0">
-                <input class="form-check-input" id="basic-checkbox" type="checkbox" checked="checked" />
-                <label class="form-check-label mb-0" for="basic-checkbox">Remember me</label>
+                    <form class="mt-sm-4" method="POST">
+                        {% csrf_token %}
+                        <div class="mb-3 input-group-lg">
+                            <input name="username" id="id_username" class="form-control" placeholder="Enter Username" aria-required="true" />
+                        </div>
+
+                        <div class="mb-3 input-group-lg">
+                            <input name="password" id="id_password" type="password" class="form-control" placeholder="Enter Password" aria-required="true" />
+                        </div>
+                        <div class="d-grid"><button type="submit" class="btn btn-lg btn-primary">Login</button></div>
+
+                        <p class="mb-0 mt-3">
+                            &copy;2023 <a target="_blank" href="#">Goodr Community Action Network</a> All rights reserved
+                        </p>
+                    </form>
+                </div>
             </div>
         </div>
-        <div class="col-auto">
-            <a class="fs-9 fw-semibold" href="#">
-                Forgot Password?
-            </a>
-        </div>
     </div>
-    <button type="submit" class="btn btn-primary w-100 mb-3">Sign In</button>
-</form>
-
-<div class="text-center">
-    <a class="fs-9 fw-bold" href="#">
-        Create an account
-    </a>
-</div>
+</main>
 {% endblock %}

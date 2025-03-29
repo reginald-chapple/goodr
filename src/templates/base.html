@@ -1,64 +1,97 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en-US" dir="ltr" data-navigation-type="default" data-navbar-horizontal-shape="default">
-  <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="author" content="Reginald Chapple">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Reginald Chapple">
 
-        <title>Goodr| {% block title %}{% endblock title %}</title>
+    <title>Goodr | {% block title %}{% endblock title %}</title>
 
-        <link rel="apple-touch-icon" sizes="180x180" href="{% static "assets/img/favicons/apple-touch-icon.png" %}">
-        <link rel="icon" type="image/png" sizes="32x32" href="{% static "assets/img/favicons/favicon-32x32.png" %}">
-        <link rel="icon" type="image/png" sizes="16x16" href="{% static "assets/img/favicons/favicon-16x16.png" %}">
-        <link rel="shortcut icon" type="image/x-icon" href="{% static "assets/img/favicons/favicon.ico" %}">
-        <link rel="manifest" href="{% static "assets/img/favicons/manifest.json" %}">
-        <meta name="msapplication-TileImage" content="{% static "assets/img/favicons/mstile-150x150.png" %}">
-        <meta name="theme-color" content="#ffffff">
-        <script src="{% static "vendors/simplebar/simplebar.min.js" %}"></script>
-        <script src="{% static "assets/js/config.js" %}"></script>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-        <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&amp;display=swap"
-            rel="stylesheet">
-        <link href="{% static "vendors/simplebar/simplebar.min.css" %}" rel="stylesheet">
-        <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
-        <link href="{% static "assets/css/theme.min.css" %}" type="text/css" rel="stylesheet" id="style-default">
+    <script>
+        const storedTheme = localStorage.getItem('theme')
 
-        <script>
-            var phoenixIsRTL = window.config.config.phoenixIsRTL;
-            if (phoenixIsRTL) {
-                var linkDefault = document.getElementById('style-default');
-                var userLinkDefault = document.getElementById('user-style-default');
-                linkDefault.setAttribute('disabled', true);
-                userLinkDefault.setAttribute('disabled', true);
-                document.querySelector('html').setAttribute('dir', 'rtl');
-            } else {
-                var linkRTL = document.getElementById('style-rtl');
-                var userLinkRTL = document.getElementById('user-style-rtl');
-                linkRTL.setAttribute('disabled', true);
-                userLinkRTL.setAttribute('disabled', true);
+        const getPreferredTheme = () => {
+            if (storedTheme) {
+                return storedTheme
             }
-        </script>
-  </head>
-  <body style="--phoenix-scroll-margin-top: 1.2rem;">
-        <main class="main" id="top">
-            {% include "partials/_basenav.html" %}
-            {% block content %}{% endblock content %}
-        </main>
+            return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+        }
 
-        <script src="{% static "vendors/popper/popper.min.js" %}"></script>
-        <script src="{% static "vendors/bootstrap/bootstrap.min.js" %}"></script>
-        <script src="{% static "vendors/anchorjs/anchor.min.js" %}"></script>
-        <script src="{% static "vendors/is/is.min.js" %}"></script>
-        <script src="{% static "vendors/fontawesome/all.min.js" %}"></script>
-        <script src="{% static "vendors/feather-icons/feather.min.js" %}"></script>
-        <script src="{% static "vendors/lodash/lodash.min.js" %}"></script>
-        <script src="{% static "vendors/list.js/list.min.js" %}"></script>
-        <script src="{% static "vendors/dayjs/dayjs.min.js" %}"></script>
-        <script src="{% static "assets/js/phoenix.js" %}"></script>
-      {% block javascript %}{% endblock javascript %}
-      {% block scripttag %}{% endblock scripttag %}
-  </body>
+        const setTheme = function (theme) {
+            if (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                document.documentElement.setAttribute('data-bs-theme', 'dark')
+            } else {
+                document.documentElement.setAttribute('data-bs-theme', theme)
+            }
+        }
+
+        setTheme(getPreferredTheme())
+
+        window.addEventListener('DOMContentLoaded', () => {
+            var el = document.querySelector('.theme-icon-active');
+            if(el != 'undefined' && el != null) {
+                const showActiveTheme = theme => {
+                const activeThemeIcon = document.querySelector('.theme-icon-active use')
+                const btnToActive = document.querySelector(`[data-bs-theme-value="${theme}"]`)
+                const svgOfActiveBtn = btnToActive.querySelector('.mode-switch use').getAttribute('href')
+
+                document.querySelectorAll('[data-bs-theme-value]').forEach(element => {
+                    element.classList.remove('active')
+                })
+
+                btnToActive.classList.add('active')
+                activeThemeIcon.setAttribute('href', svgOfActiveBtn)
+            }
+
+            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+                if (storedTheme !== 'light' || storedTheme !== 'dark') {
+                    setTheme(getPreferredTheme())
+                }
+            })
+
+            showActiveTheme(getPreferredTheme())
+
+            document.querySelectorAll('[data-bs-theme-value]')
+                .forEach(toggle => {
+                    toggle.addEventListener('click', () => {
+                        const theme = toggle.getAttribute('data-bs-theme-value')
+                        localStorage.setItem('theme', theme)
+                        setTheme(theme)
+                        showActiveTheme(theme)
+                    })
+                })
+
+            }
+        })
+    </script>
+
+    <link rel="shortcut icon" type="image/x-icon" href="{% static "favicon.ico" %}">
+
+    <link rel="stylesheet" type="text/css" href="{% static "assets/vendor/font-awesome/css/all.min.css" %} " />
+    <link rel="stylesheet" type="text/css" href="{% static "library/bootstrap-icons/font/bootstrap-icons.min.css" %}" />
+    <link rel="stylesheet" type="text/css" href="{% static "assets/vendor/OverlayScrollbars-master/css/OverlayScrollbars.min.css" %}" />
+    {% block stylesheets %}{% endblock stylesheets %}
+    <link rel="stylesheet" type="text/css" href="{% static "assets/css/style.css" %}" />
+    <link rel="stylesheet" type="text/css" href="{% static "css/main.css" %}" />
+
+    {% block styletag %}{% endblock styletag %}
+</head>
+<body>
+    {% block content %}{% endblock content %}
+
+    <script src="{% static "library/signalr/signalr.min.js" %}"></script>
+	<script src="{% static "library/bootstrap/js/bootstrap.bundle.min.js" %}"></script>
+	<script src="{% static "assets/vendor/OverlayScrollbars-master/js/OverlayScrollbars.min.js" %}"></script>
+	{% block javascript %}{% endblock javascript %}
+	<script src="{% static "assets/js/functions.js" %} "></script>
+	<script src="{% static "js/commons.js" %}"></script>
+
+    {% if request.user.is_authenticated %}
+    <script src="{% static "js/notify.js" %}"></script>
+    {% endif %}
+
+    {% block scripttag %}{% endblock scripttag %}
+</body>
 </html>

@@ -1,0 +1,120 @@
+.btn-primary-soft,
+.badge-primary-soft {
+  color: #00A3FF;
+  background-color: rgba(0, 163, 255, 0.1);
+}
+.btn-primary-soft:active, .btn-primary-soft:hover, .btn-primary-soft:focus {
+  color: #fff !important;
+  background-color: #00A3FF !important;
+  border-color: #00A3FF !important;
+}
+
+.btn-secondary-soft {
+  color: #14191e;
+  background-color: rgba(20, 25, 30, 0.1);
+}
+.btn-secondary-soft:active, .btn-secondary-soft:hover, .btn-secondary-soft:focus {
+  color: #fff !important;
+  background-color: #14191e !important;
+  border-color: #14191e !important;
+}
+
+.btn-success-soft {
+  color: #0cbc87;
+  background-color: rgba(12, 188, 135, 0.1);
+}
+.btn-success-soft:active, .btn-success-soft:hover, .btn-success-soft:focus {
+  color: #fff !important;
+  background-color: #0cbc87 !important;
+  border-color: #0cbc87 !important;
+}
+
+.btn-info-soft {
+  color: #4f9ef8;
+  background-color: rgba(79, 158, 248, 0.1);
+}
+.btn-info-soft:active, .btn-info-soft:hover, .btn-info-soft:focus {
+  color: #fff !important;
+  background-color: #4f9ef8 !important;
+  border-color: #4f9ef8 !important;
+}
+
+.btn-warning-soft {
+  color: #f7c32e;
+  background-color: rgba(247, 195, 46, 0.1);
+}
+.btn-warning-soft:active, .btn-warning-soft:hover, .btn-warning-soft:focus {
+  color: #000 !important;
+  background-color: #f7c32e !important;
+  border-color: #f7c32e !important;
+}
+
+.btn-danger-soft {
+  color: #d6293e;
+  background-color: rgba(214, 41, 62, 0.1);
+}
+.btn-danger-soft:active, .btn-danger-soft:hover, .btn-danger-soft:focus {
+  color: #fff !important;
+  background-color: #d6293e !important;
+  border-color: #d6293e !important;
+}
+
+.btn-light-soft {
+  color: #eef0f2;
+  background-color: rgba(238, 240, 242, 0.1);
+}
+.btn-light-soft:active, .btn-light-soft:hover, .btn-light-soft:focus {
+  color: #000 !important;
+  background-color: #eef0f2 !important;
+  border-color: #eef0f2 !important;
+}
+
+.btn-dark-soft {
+  color: #14191e;
+  background-color: rgba(20, 25, 30, 0.1);
+}
+.btn-dark-soft:active, .btn-dark-soft:hover, .btn-dark-soft:focus {
+  color: #fff !important;
+  background-color: #14191e !important;
+  border-color: #14191e !important;
+}
+
+.btn-primary-soft-hover:hover:hover {
+  color: #00A3FF !important;
+  background-color: rgba(0, 163, 255, 0.1);
+}
+
+.btn-secondary-soft-hover:hover:hover {
+  color: #14191e !important;
+  background-color: rgba(20, 25, 30, 0.1);
+}
+
+.btn-success-soft-hover:hover:hover {
+  color: #0cbc87 !important;
+  background-color: rgba(12, 188, 135, 0.1);
+}
+
+.btn-info-soft-hover:hover:hover {
+  color: #4f9ef8 !important;
+  background-color: rgba(79, 158, 248, 0.1);
+}
+
+.btn-warning-soft-hover:hover:hover {
+  color: #f7c32e !important;
+  background-color: rgba(247, 195, 46, 0.1);
+}
+
+.btn-danger-soft-hover:hover:hover {
+  color: #d6293e !important;
+  background-color: rgba(214, 41, 62, 0.1);
+}
+
+.btn-light-soft-hover:hover:hover {
+  color: #eef0f2 !important;
+  background-color: rgba(238, 240, 242, 0.1);
+}
+
+.btn-dark-soft-hover:hover:hover {
+  color: #14191e !important;
+  background-color: rgba(20, 25, 30, 0.1);
+}

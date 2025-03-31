@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block title %}
+My Projects
+{% endblock title %}
+
+{% block content %}
+
+{% include "partials/_navbar.html" %}
+
+<main>
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-lg-3">
+                {% include "partials/_membernav.html" %}
+            </div>
+
+            <div class="col-lg-9 vstack gap-4">
+                <div class="card h-100">
+                    <div class="card-header d-sm-flex align-items-center text-center justify-content-sm-between border-0 pb-0">
+                        <h1 class="h4 card-title">Projects</h1>
+                        <!-- Button modal -->
+                        <a class="btn btn-complementary-soft" href="#" data-bs-toggle="modal" data-bs-target="#saveProjectModal">
+                            <i class="fa-solid fa-plus pe-1"></i> Create projects
+                        </a>
+                    </div>
+                    <div class="card-body">
+                        <div class="">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" class="text-muted">Project</th>
+                                        <th class="min-w-125px text-muted">Status</th>
+                                        <th class="text-end text-muted">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="projects-list">
+                                    {% for project in projects %}
+                                    <tr>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <a asp-controller="Projects" href="#" class="fs-6 fw-bolder text-decoration-none mt-1">
+                                                    {{ project.title }}
+                                                </a>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span class="text-muted fw-bold fs-6 d-block mt-1">{{ project.status }}</span>
+                                        </td>
+                                        <td class="pe-0 text-end">
+                                            <a class="btn btn-light text-muted fw-bolder btn-sm px-5" href="#">
+                                                View
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    {% empty %}
+                                    <tr>
+                                        <td>
+                                            <p>No project available.</p>
+                                        </td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+{% include "modals/save_project.html" with form=form %}
+
+{% endblock content %}

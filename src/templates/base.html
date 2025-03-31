@@ -81,16 +81,15 @@
 <body>
     {% block content %}{% endblock content %}
 
-    <script src="{% static "library/signalr/signalr.min.js" %}"></script>
 	<script src="{% static "library/bootstrap/js/bootstrap.bundle.min.js" %}"></script>
 	<script src="{% static "assets/vendor/OverlayScrollbars-master/js/OverlayScrollbars.min.js" %}"></script>
 	{% block javascript %}{% endblock javascript %}
 	<script src="{% static "assets/js/functions.js" %} "></script>
 	<script src="{% static "js/commons.js" %}"></script>
 
-    {% if request.user.is_authenticated %}
+    {% comment %} {% if request.user.is_authenticated %}
     <script src="{% static "js/notify.js" %}"></script>
-    {% endif %}
+    {% endif %} {% endcomment %}
 
     {% block scripttag %}{% endblock scripttag %}
 </body>

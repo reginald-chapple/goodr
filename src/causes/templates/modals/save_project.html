@@ -1,0 +1,75 @@
+<div class="modal fade" id="saveProjectModal" tabindex="-1" aria-labelledby="saveProjectModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="saveProjectModalLabel">Save Project</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="save-project-form" method="post" action="{% url "projects:project_create" %}">
+                    {% csrf_token %}
+                    <div class="form-group mb-3">
+                        <label for="{{ form.title.id_for_label }}" class="form-label">Title</label>
+                        {{ form.title }}
+                        {% if form.title.errors %}
+                            <div class="text-danger">{{ form.title.errors }}</div>
+                        {% endif %}
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="{{ form.description.id_for_label }}" class="form-label">Description</label>
+                        {{ form.description }}
+                        {% if form.description.errors %}
+                            <div class="text-danger">{{ form.description.errors }}</div>
+                        {% endif %}
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="{{ form.intended_impact.id_for_label }}" class="form-label">Intended Impact</label>
+                        {{ form.intended_impact }}
+                        {% if form.intended_impact.errors %}
+                            <div class="text-danger">{{ form.intended_impact.errors }}</div>
+                        {% endif %}
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="{{ form.beneficaries.id_for_label }}" class="form-label">Beneficaries</label>
+                        {{ form.beneficaries }}
+                        {% if form.beneficaries.errors %}
+                            <div class="text-danger">{{ form.beneficaries.errors }}</div>
+                        {% endif %}
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="{{ form.target_amount.id_for_label }}" class="form-label">Target Amount</label>
+                        {{ form.target_amount }}
+                        {% if form.target_amount.errors %}
+                            <div class="text-danger">{{ form.target_amount.errors }}</div>
+                        {% endif %}
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="{{ form.location.id_for_label }}" class="form-label">Location</label>
+                        {{ form.location }}
+                        {% if form.location.errors %}
+                            <div class="text-danger">{{ form.location.errors }}</div>
+                        {% endif %}
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="{{ form.deadline.id_for_label }}" class="form-label">Deadline</label>
+                        {{ form.deadline }}
+                        {% if form.deadline.errors %}
+                            <div class="text-danger">{{ form.deadline.errors }}</div>
+                        {% endif %}
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="{{ form.cause.id_for_label }}" class="form-label">Cause</label>
+                        {{ form.cause }}
+                        {% if form.cause.errors %}
+                            <div class="text-danger">{{ form.cause.errors }}</div>
+                        {% endif %}
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" form="save-project-form" class="btn btn-primary">Save</button>
+                <button type="button" class="btn btn-light-danger" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

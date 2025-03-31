@@ -36,12 +36,12 @@
                             aria-haspopup="true" aria-expanded="false">Projects</a>
                         <ul class="dropdown-menu" aria-labelledby="homeMenu">
                             <li>
-                                <a class="dropdown-item" asp-controller="Members" asp-action="Projects">
+                                <a class="dropdown-item" href="{% url "projects:my_projects" %}">
                                     My Projects
                                 </a>
                             </li>
                             <li>
-                                <a class="dropdown-item" asp-controller="Projects" asp-action="Browse">
+                                <a class="dropdown-item" href="{% url "projects:project_list" %}">
                                     All Projects
                                 </a>
                             </li>
@@ -181,11 +181,11 @@
                                     <!-- Avatar -->
                                     <div class="avatar me-3">
                                         <img class="avatar-img rounded-circle"
-                                            src="~/media/members/@(User.FindFirst("Image")!.Value)" alt="avatar">
+                                            src="{{ request.user.photo.url }}" alt="avatar">
                                     </div>
                                     <div>
-                                        <a class="h6 stretched-link" href="#">{{ request.user.username }}</a>
-                                        <p class="small m-0">@User.Identity?.Name</p>
+                                        <a class="h6 stretched-link" href="#">{{ request.user.name }}</a>
+                                        <p class="small m-0">{{ request.user.username }}</p>
                                     </div>
                                 </div>
                                 <a class="dropdown-item btn btn-primary-soft btn-sm my-2 text-center" href="#">

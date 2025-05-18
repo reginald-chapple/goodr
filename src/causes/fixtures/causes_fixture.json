@@ -1,0 +1,234 @@
+[
+    {
+        "model": "causes.cause",
+        "pk": 1,
+        "fields": {
+            "name": "Advocacy & Human Rights",
+            "description": "Supporting efforts for social justice, civil liberties, and human rights. Examples: Campaigning, legal aid volunteering, awareness raising."
+        }
+    },
+    {
+        "model": "causes.cause",
+        "pk": 2,
+        "fields": {
+            "name": "Animals",
+            "description": "Caring for domestic animals or wildlife. Examples: Shelter care, wildlife conservation projects, adoption events."
+        }
+    },
+    {
+        "model": "causes.cause",
+        "pk": 3,
+        "fields": {
+            "name": "Arts & Culture",
+            "description": "Supporting cultural institutions and artistic expression. Examples: Museum volunteering, community theatre support, public art projects."
+        }
+    },
+    {
+        "model": "causes.cause",
+        "pk": 4,
+        "fields": {
+            "name": "Board Development",
+            "description": "Providing leadership and governance support to non-profits. Examples: Serving on non-profit boards, strategic planning assistance."
+        }
+    },
+    {
+        "model": "causes.cause",
+        "pk": 5,
+        "fields": {
+            "name": "Children & Youth",
+            "description": "Supporting the development and well-being of young people. Examples: Tutoring, mentoring, coaching sports, childcare."
+        }
+    },
+    {
+        "model": "causes.cause",
+        "pk": 6,
+        "fields": {
+            "name": "Community Development",
+            "description": "Improving local neighborhoods and communities. Examples: Neighborhood cleanups, community gardens, local event support."
+        }
+    },
+    {
+        "model": "causes.cause",
+        "pk": 7,
+        "fields": {
+            "name": "Computers & Technology",
+            "description": "Bridging the digital divide and supporting tech needs. Examples: Teaching digital literacy, tech support for non-profits, website development."
+        }
+    },
+    {
+        "model": "causes.cause",
+        "pk": 8,
+        "fields": {
+            "name": "Crisis Support",
+            "description": "Providing assistance during times of crisis or distress. Examples: Hotline volunteering, support group facilitation, victim assistance."
+        }
+    },
+    {
+        "model": "causes.cause",
+        "pk": 9,
+        "fields": {
+            "name": "Disaster Relief",
+            "description": "Assisting communities affected by natural or man-made disasters. Examples: Emergency response, cleanup, donation sorting, rebuilding efforts."
+        }
+    },
+    {
+        "model": "causes.cause",
+        "pk": 10,
+        "fields": {
+            "name": "Education & Literacy",
+            "description": "Promoting learning and literacy for all ages. Examples: Tutoring adults/children, ESL teaching, book drives, library support."
+        }
+    },
+    {
+        "model": "causes.cause",
+        "pk": 11,
+        "fields": {
+            "name": "Emergency & Safety",
+            "description": "Supporting public safety and emergency preparedness. Examples: First aid/CPR training, neighborhood watch, volunteer firefighting/EMT support."
+        }
+    },
+    {
+        "model": "causes.cause",
+        "pk": 12,
+        "fields": {
+            "name": "Employment Support",
+            "description": "Helping individuals find and maintain employment. Examples: Job search assistance, resume workshops, skills training."
+        }
+    },
+    {
+        "model": "causes.cause",
+        "pk": 13,
+        "fields": {
+            "name": "Environment",
+            "description": "Protecting and restoring the natural environment. Examples: Tree planting, conservation projects, recycling drives, park/beach cleanups."
+        }
+    },
+    {
+        "model": "causes.cause",
+        "pk": 14,
+        "fields": {
+            "name": "Faith-Based Initiatives",
+            "description": "Community service organized through religious institutions. Examples: Church/mosque/synagogue projects, mission trips, faith-based community meals."
+        }
+    },
+    {
+        "model": "causes.cause",
+        "pk": 15,
+        "fields": {
+            "name": "Health & Medicine",
+            "description": "Supporting health services and promoting wellness. Examples: Hospital volunteering, blood drives, health screenings, awareness campaigns."
+        }
+    },
+    {
+        "model": "causes.cause",
+        "pk": 16,
+        "fields": {
+            "name": "Homelessness & Housing",
+            "description": "Assisting individuals and families experiencing homelessness. Examples: Shelter support, meal service, building homes (e.g., Habitat for Humanity)."
+        }
+    },
+    {
+        "model": "causes.cause",
+        "pk": 17,
+        "fields": {
+            "name": "Hunger & Food Security",
+            "description": "Addressing food insecurity and providing meals. Examples: Food bank sorting/distribution, soup kitchens, meal delivery (e.g., Meals on Wheels)."
+        }
+    },
+    {
+        "model": "causes.cause",
+        "pk": 18,
+        "fields": {
+            "name": "Immigrants & Refugees",
+            "description": "Supporting newcomers in the community. Examples: ESL teaching, resettlement assistance, cultural orientation, legal aid."
+        }
+    },
+    {
+        "model": "causes.cause",
+        "pk": 19,
+        "fields": {
+            "name": "International Aid",
+            "description": "Supporting development and relief efforts abroad. Examples: Overseas volunteering, global development projects, fundraising for global causes."
+        }
+    },
+    {
+        "model": "causes.cause",
+        "pk": 20,
+        "fields": {
+            "name": "Justice & Legal Services",
+            "description": "Providing legal assistance and supporting the justice system. Examples: Legal aid clinics, court advocacy, prison reentry programs."
+        }
+    },
+    {
+        "model": "causes.cause",
+        "pk": 21,
+        "fields": {
+            "name": "LGBTQ+ Support",
+            "description": "Supporting and advocating for the LGBTQ+ community. Examples: Community center volunteering, pride event support, advocacy groups."
+        }
+    },
+    {
+        "model": "causes.cause",
+        "pk": 22,
+        "fields": {
+            "name": "Media & Broadcasting",
+            "description": "Supporting community media and non-profit communications. Examples: Community radio/TV support, non-profit marketing/social media help."
+        }
+    },
+    {
+        "model": "causes.cause",
+        "pk": 23,
+        "fields": {
+            "name": "People with Disabilities",
+            "description": "Supporting individuals with physical or developmental disabilities. Examples: Companionship, accessibility projects, Special Olympics support."
+        }
+    },
+    {
+        "model": "causes.cause",
+        "pk": 24,
+        "fields": {
+            "name": "Politics & Civic Engagement",
+            "description": "Engaging in the democratic process and community governance. Examples: Voter registration drives, campaigning, poll working, community board participation."
+        }
+    },
+    {
+        "model": "causes.cause",
+        "pk": 25,
+        "fields": {
+            "name": "Race & Ethnicity Issues",
+            "description": "Promoting racial equity and celebrating cultural diversity. Examples: Anti-racism initiatives, cultural heritage preservation, community dialogues."
+        }
+    },
+    {
+        "model": "causes.cause",
+        "pk": 26,
+        "fields": {
+            "name": "Seniors / Elderly Care",
+            "description": "Supporting the well-being and independence of older adults. Examples: Visiting nursing homes, meal delivery, tech help, chore assistance."
+        }
+    },
+    {
+        "model": "causes.cause",
+        "pk": 27,
+        "fields": {
+            "name": "Sports & Recreation",
+            "description": "Supporting community sports, fitness, and recreational activities. Examples: Coaching youth teams, refereeing, event support, trail maintenance."
+        }
+    },
+    {
+        "model": "causes.cause",
+        "pk": 28,
+        "fields": {
+            "name": "Veterans & Military Families",
+            "description": "Providing support and resources for service members, veterans, and their families. Examples: Support services, care packages, memorial events."
+        }
+    },
+    {
+        "model": "causes.cause",
+        "pk": 29,
+        "fields": {
+            "name": "Women's Issues",
+            "description": "Supporting the empowerment and well-being of women. Examples: Shelter support, advocacy, empowerment programs, mentorship."
+        }
+    }
+]

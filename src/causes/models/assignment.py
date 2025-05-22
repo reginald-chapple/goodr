@@ -26,7 +26,7 @@ class Assignment(BaseModel):
         settings.AUTH_USER_MODEL,
         verbose_name=_("assigned to"),
         related_name="assignments",
-        on_delete=models.CASCADE,
+        on_delete=models.SET_NULL,
         null=True,
         blank=True
     )

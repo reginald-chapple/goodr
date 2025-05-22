@@ -19,14 +19,17 @@ class Project(BaseModel):
     )
 
     title = models.CharField(_("title"), max_length=100, null=False, blank=True)
-    description = models.TextField(_("description"), default="", null=False, blank=True)
+    problem = models.TextField(_("problem"), default="", null=False, blank=True)
+    solution = models.TextField(_("solution"), default="", null=False, blank=True)
     intended_impact = models.TextField(_("intended impact"), default="", null=False, blank=True)
     beneficaries = models.TextField(_("beneficiaries"), default="", null=False, blank=True)
-    target_amount = models.DecimalField(_("target amount"), max_digits=10, decimal_places=2, null=False, blank=True)
+    target_amount = models.DecimalField(_("target amount"), max_digits=10, decimal_places=2, default=0, null=False, blank=True)
     current_amount = models.DecimalField(_("current amount"), max_digits=10, decimal_places=2, default=0, null=False, blank=True)
+    overall_progress = models.DecimalField(_("overall progress"), max_digits=5, decimal_places=2, default=0)
     status = models.CharField(_("status"), max_length=12, choices=PROJECT_STATUS, default="Draft", null=False, blank=True)
     location = models.CharField(_("location"), max_length=100, null=False, blank=True)
-    deadline = models.DateField(_("deadline"), null=False, blank=True)
+    start_date = models.DateField(_("start date"), null=True, blank=True)
+    deadline = models.DateField(_("deadline"), null=True, blank=True)
     completion_date = models.DateField(_("completion date"), null=True, blank=True)
     cause = models.ForeignKey(Cause, verbose_name=_("cause"), on_delete=models.CASCADE, related_name="projects", null=False, blank=True)
     created_by = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_("created by"), on_delete=models.CASCADE, related_name="projects", null=False, blank=True)
@@ -52,8 +55,6 @@ class ProjectParticipant(BaseModel):
     project = models.ForeignKey(Project, verbose_name=_("project"), on_delete=models.CASCADE, related_name="project_participants", null=False, blank=True)
     role = models.CharField(_("role"), max_length=10, choices=PROJECT_ROLE, default="Follower", null=False, blank=True)
     
-    
-
     class Meta:
         verbose_name = _("project participant")
         verbose_name_plural = _("project participants")

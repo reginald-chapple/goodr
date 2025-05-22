@@ -255,9 +255,9 @@ a.nav-link.text-light-emphasis:hover {
   border-color: var(--silver-tree);
 }
 
-.form-select {
+/* .form-select {
   background-color: #fff !important;
-}
+} */
 
 .fc .fc-button-primary {
   background-color: var(--silver-tree);

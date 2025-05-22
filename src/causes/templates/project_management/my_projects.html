@@ -21,7 +21,7 @@ My Projects
                         <h1 class="h4 card-title">Projects</h1>
                         <!-- Button modal -->
                         <a class="btn btn-complementary-soft" href="#" data-bs-toggle="modal" data-bs-target="#saveProjectModal">
-                            <i class="fa-solid fa-plus pe-1"></i> Create projects
+                            <i class="fa-solid fa-plus pe-1"></i> Create project
                         </a>
                     </div>
                     <div class="card-body">
@@ -39,7 +39,7 @@ My Projects
                                     <tr>
                                         <td>
                                             <div class="d-flex align-items-center">
-                                                <a asp-controller="Projects" href="#" class="fs-6 fw-bolder text-decoration-none mt-1">
+                                                <a asp-controller="Projects" href="{% url "project-management:detail" project.id %}" class="fs-6 fw-bolder text-decoration-none mt-1">
                                                     {{ project.title }}
                                                 </a>
                                             </div>
@@ -48,18 +48,16 @@ My Projects
                                             <span class="text-muted fw-bold fs-6 d-block mt-1">{{ project.status }}</span>
                                         </td>
                                         <td class="pe-0 text-end">
-                                            <a class="btn btn-light text-muted fw-bolder btn-sm px-5" href="#">
+                                            <a class="btn btn-light text-muted fw-bolder btn-sm px-5" href="{% url "project-management:detail" project.id %}">
                                                 View
                                             </a>
                                         </td>
                                     </tr>
                                     {% empty %}
                                     <tr>
-                                        <td>
-                                            <p>No project available.</p>
+                                        <td colspan="4" class="text-center">
+                                            No projects available.
                                         </td>
-                                        <td></td>
-                                        <td></td>
                                     </tr>
                                     {% endfor %}
                                 </tbody>

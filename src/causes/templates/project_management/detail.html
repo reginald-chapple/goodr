@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %}
+Project Detail Management
+{% endblock title %}
+
+{% block content %}
+    {% include "partials/_navbar.html" %}
+    
+    <main>
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-3">
+                    {% include "partials/_projectnav.html" with project=project %}
+                </div>
+
+                <div class="col-lg-9 vstack gap-4">
+                    <div class="card h-100">
+                        <div class="card-header d-sm-flex align-items-center text-center justify-content-sm-between border-0 pb-0">
+                            <h1 class="h4 card-title">{{ project.title }}</h1>
+                            <div>
+                                <a class="btn btn-complementary-soft" href="#"> 
+                                    <i class="fa-solid fa-compass pe-1"></i> My projects
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="card-body">
+                            <ul class="nav nav-tabs nav-bottom-line justify-content-center justify-content-md-start">
+                                <li class="nav-item"> <a class="nav-link active" data-bs-toggle="tab" href="#tab-1"> Details </a> </li>
+                                <li class="nav-item"> <a class="nav-link" data-bs-toggle="tab" href="#tab-2"> Proposal </a> </li>
+                            </ul>
+
+                            <div class="tab-content mb-0 pb-0">
+                                <div class="tab-pane fade show active" id="tab-1">
+                                    <p>Tab 1</p>
+                                </div>
+                                <div class="tab-pane fade" id="tab-2">
+                                    <p>Tab 2</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock content %}

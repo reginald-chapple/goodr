@@ -5,7 +5,11 @@ from causes.models import Project
 
 def home(request):
     template_name='pages/home.html'
-    return render(request, template_name)
+    projects = Project.objects.all()[:4]
+    context = {
+        'projects': projects
+    }
+    return render(request, template_name, context)
 
 @login_required
 def browse(request):

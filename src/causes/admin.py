@@ -7,7 +7,8 @@ from causes.models import (
     ProjectUpdate,
     Objective,
     UserCause,
-    Donation
+    Donation,
+    Assignment
 )
 
 admin.site.register(Cause)
@@ -17,4 +18,5 @@ admin.site.register(ProjectUpdate)
 admin.site.register(Objective)
 admin.site.register(UserCause)
 admin.site.register(Donation)
+admin.site.register(Assignment)
 

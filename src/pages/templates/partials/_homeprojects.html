@@ -1,0 +1,107 @@
+{% load static %}
+
+<section class="bg-mode py-5">
+    <div class="container pt-5">
+        <div class="row">
+            <div class="col-12 mb-3">
+                <div class="d-sm-flex justify-content-between">
+                    <!-- Title -->
+                    <h4>Explore projects </h4>
+                    <a class="btn btn-link" href="#">View all projects</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-4">
+           {% for project in projects %}
+            <div class="col-lg-3 col-md-4 col-12">
+                <div class="card h-100">
+                    <div class="position-relative">
+                        <img class="img-fluid rounded-top" src="{% static "media/projects/project-default.jpg" %}" alt="">
+                    </div>
+                    <div class="card-body position-relative pt-0">
+                        <a class="btn btn-xs btn-primary mt-n3" href="#">{{ project.cause.name }} </a>
+                        <h4 class="mt-3">
+                            <a asp-controller="Projects" href="#">
+                                {{ project.title}}
+                            </a>
+                        </h4>
+                        <p class="mb-0 small">
+                            <i class="bi bi-calendar-check pe-1"></i>
+                            {{ project.created_at|date:"M j, Y" }}
+                        </p>
+                        <p class="small"> <i class="bi bi-geo-alt pe-1"></i> {{ project.location }} </p>
+                        <ul class="avatar-group list-unstyled align-items-center mb-0">
+                            <li class="avatar avatar-xs">
+                                <img class="avatar-img rounded-circle" src="{% static "assets/images/avatar/01.jpg" %}" alt="avatar">
+                            </li>
+                            <li class="avatar avatar-xs">
+                                <img class="avatar-img rounded-circle" src="{% static "assets/images/avatar/03.jpg" %}" alt="avatar">
+                            </li>
+                            <li class="avatar avatar-xs">
+                                <img class="avatar-img rounded-circle" src="{% static "assets/images/avatar/04.jpg" %}" alt="avatar">
+                            </li>
+                            <li class="avatar avatar-xs">
+                                <div class="avatar-img rounded-circle bg-primary"><span
+                                        class="smaller text-white position-absolute top-50 start-50 translate-middle">+78</span>
+                                </div>
+                            </li>
+                            <li class="ms-3">
+                                <small> are supporting</small>
+                            </li>
+                        </ul>
+                        <div class="d-flex mt-3 justify-content-between">
+                            <div class="w-100">
+                                <a class="btn btn-sm btn-primary-soft d-block" href="#">
+                                    <i class="fa-solid fa-heart me-1"></i> Interested
+                                </a>
+                            </div>
+                            <div class="dropdown ms-3">
+                                <a href="#" class="btn btn-sm btn-complementary-soft" id="eventActionShare" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    <i class="bi bi-share-fill"></i>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="eventActionShare">
+                                    <li>
+                                        <a class="dropdown-item" href="#">
+                                            <i class="bi bi-envelope fa-fw pe-1"></i>
+                                            Send via Direct Message
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#">
+                                            <i class="bi bi-bookmark-check fa-fw pe-1"></i>
+                                            Share to News Feed
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#">
+                                            <i class="bi bi-people fa-fw pe-1"></i>
+                                            Share to a group
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#">
+                                            <i class="bi bi-share fa-fw pe-1"></i>
+                                            Share post via...
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#">
+                                            <i class="bi bi-person fa-fw pe-1"></i>
+                                            Share on a friend's profile
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           {% endfor %}
+        </div>
+    </div>
+</section>

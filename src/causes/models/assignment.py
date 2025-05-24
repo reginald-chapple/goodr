@@ -15,19 +15,18 @@ class Assignment(BaseModel):
         ('Overdue', 'Overdue'),
     )
 
-    task = models.CharField(_("task"), max_length=50, null=False, blank=True)
+    task = models.CharField(_("task"), max_length=150, null=False, blank=True)
+    scheduled_at = models.DateTimeField(_("scheduled at"), null=True, blank=True)
     started_at = models.DateTimeField(_("started at"), null=True, blank=True)
     finished_at = models.DateTimeField(_("finished at"), null=True, blank=True)
     due_at = models.DateTimeField(_("due at"), null=True, blank=True)
     location = models.CharField(_("location"), max_length=100, null=False, blank=True)
     notes = models.TextField(_("notes"), default="", null=False, blank=True)
     status = models.CharField(_("status"), max_length=15, choices=ASSIGNMENT_STATUS, default="Pending", null=False, blank=True)
-    assigned_to = models.ForeignKey(
+    assignees = models.ManyToManyField(
         settings.AUTH_USER_MODEL,
-        verbose_name=_("assigned to"),
+        verbose_name=_("assignees"),
         related_name="assignments",
-        on_delete=models.SET_NULL,
-        null=True,
         blank=True
     )
     project = models.ForeignKey(Project, verbose_name=_("project"), on_delete=models.CASCADE, related_name="assignments", null=False, blank=True)
@@ -37,7 +36,7 @@ class Assignment(BaseModel):
         verbose_name_plural = _("assignments")
 
     def __str__(self):
-        return self.name
+        return self.task
 
     def get_absolute_url(self):
         return reverse("assignment_detail", kwargs={"pk": self.pk})

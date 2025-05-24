@@ -5,7 +5,6 @@ from django.db.models import Q
 from django.http import JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
 
-from causes.forms import ProjectForm
 from causes.models import Cause, Project
 
 def project_list(request):
@@ -43,3 +42,7 @@ def project_list(request):
         'causes': causes
     }
     return render(request, 'projects/project_list.html', context)
+
+def project_view(request, pk):
+    project = get_object_or_404(Project, pk=pk)
+    return render(request, 'projects/project_view.html', {'project': project})

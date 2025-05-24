@@ -6,7 +6,10 @@ from causes.views import (
     project_update, 
     project_delete, 
     my_projects,
-    project_objectives
+    project_objectives,
+    objective_create,
+    project_assignments,
+    assignment_create
 )
 
 urlpatterns = [
@@ -17,5 +20,8 @@ urlpatterns = [
         path('<int:pk>/update/', project_update, name='update'),
         path('<int:pk>/delete/', project_delete, name='delete'),
         path('<int:pk>/objectives/', project_objectives, name='objectives'),
+        path('<int:pk>/objectives/create/', objective_create, name='objective_create'),
+        path('<int:pk>/assignments/', project_assignments, name='assignments'),
+        path('<int:pk>/assignments/create/', assignment_create, name='assignment_create'),
     ], 'project-management'))),
 ]

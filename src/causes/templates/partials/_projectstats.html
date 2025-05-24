@@ -1,0 +1,65 @@
+{% load static %}
+
+<div class="card card-body">
+    <div class="mt-4">
+        <ul class="list-unstyled mb-4">
+            <li class="d-flex justify-content-between mb-3"> 
+                <strong class="w-150px">Status:</strong> 
+                <span class="text-end">{{ project.status }}</span>
+            </li>
+            <li class="d-flex justify-content-between mb-3"> 
+                <strong class="w-150px">Deadline:</strong> 
+                <span class="text-end"> 
+                    {% if project.deadline is not none %}
+                        {{ project.deadline }}
+                    {% else %}
+                        TBD
+                    {% endif %}
+                </span>
+            </li>
+            <li class="d-flex justify-content-between mb-3"> 
+                <strong class="w-150px">Financial goal:</strong> 
+                <span class="text-end"> {{ project.target_amount }} </span>
+            </li>
+            <li class="d-flex justify-content-between mb-3"> 
+                <strong class="w-150px">Funds raised:</strong> 
+                <span class="text-end"> {{ project.current_amount }}</span>
+            </li>
+        </ul> 
+        <div class="progress my-3" role="progressbar" aria-label="Example 20px high" aria-valuenow="{{ project.overall_progress }}" aria-valuemin="0" aria-valuemax="100" style="height: 20px">
+            <div class="progress-bar progress-bar-striped bg-success" style="width: {{ project.overall_progress }}%"></div>
+        </div>
+        <ul class="avatar-group list-unstyled align-items-center mb-0">
+            <li class="avatar avatar-xs">
+                <img class="avatar-img rounded-circle" src="{% static "assets/images/avatar/01.jpg" %} " alt="avatar">
+            </li>
+            <li class="avatar avatar-xs">
+                <img class="avatar-img rounded-circle" src="{% static "assets/images/avatar/03.jpg" %}" alt="avatar">
+            </li>
+            <li class="avatar avatar-xs">
+                <img class="avatar-img rounded-circle" src="{% static "assets/images/avatar/04.jpg" %}" alt="avatar">
+            </li>
+            <li class="avatar avatar-xs">
+                <div class="avatar-img rounded-circle bg-primary">
+                    <span class="smaller text-white position-absolute top-50 start-50 translate-middle">+78</span>
+                </div>
+            </li>
+            <li class="ms-3">
+                <small> other donors</small>
+            </li>
+        </ul>
+        {% if request.user.is_authenticated %}
+            <a class="btn btn-cta-soft btn-block w-100 my-3" data-bs-toggle="modal" data-bs-target="#makeDonationModal">
+                <i class="fa-solid fa-heart me-1"></i>
+                Donate 
+            </a>
+        {% else %}
+            <a class="btn btn-cta-soft btn-block w-100 my-3" href="{% url "login" %}">
+                <i class="fa-solid fa-heart me-1"></i>
+                Donate 
+            </a>
+        {% endif %}
+        
+    </div>
+</div>
+

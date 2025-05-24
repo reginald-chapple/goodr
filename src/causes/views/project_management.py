@@ -2,7 +2,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
 
-from causes.forms import ProjectForm
+from causes.forms import ProjectForm, ObjectiveForm, AssignmentForm
 from causes.models import Project, Objective, Assignment
 
 @login_required
@@ -72,7 +72,63 @@ def project_delete(request, pk):
 def project_objectives(request, pk):
     project = get_object_or_404(Project, pk=pk)
     
+    
     if project.created_by != request.user:
         return redirect('project-management:my_projects')
     
-    return render(request, 'project_management/objectives.html', {'project': project})
+    form = ObjectiveForm()
+    context = {
+        'project': project,
+        'form': form
+    }
+    
+    return render(request, 'project_management/objectives.html', context)
+
+@login_required
+def objective_create(request, pk):
+    project = get_object_or_404(Project, pk=pk)
+    
+    if project.created_by != request.user:
+        return redirect('project-management:my_projects')
+    
+    if request.method == 'POST':
+        form = ObjectiveForm(request.POST)
+        if form.is_valid():
+            obj = form.save(commit=False)
+            obj.project = project
+            obj.save()
+        return redirect('project-management:objectives', project.id)
+    else:
+        return redirect('project-management:my_projects')
+    
+@login_required
+def project_assignments(request, pk):
+    project = get_object_or_404(Project, pk=pk)
+    
+    if project.created_by != request.user:
+        return redirect('project-management:my_projects')
+    
+    form = AssignmentForm()
+    context = {
+        'project': project,
+        'form': form
+    }
+    
+    return render(request, 'project_management/assignments.html', context)
+
+@login_required
+def assignment_create(request, pk):
+    project = get_object_or_404(Project, pk=pk)
+    
+    if project.created_by != request.user:
+        return redirect('project-management:my_projects')
+    
+    if request.method == 'POST':
+        form = AssignmentForm(request.POST)
+        if form.is_valid():
+            assignment = form.save(commit=False)
+            assignment.project = project
+            assignment.save()
+            return redirect('project-management:assignments', project.id)
+    else:
+        return redirect('project-management:my_projects')

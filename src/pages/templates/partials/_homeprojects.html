@@ -22,7 +22,7 @@
                     <div class="card-body position-relative pt-0">
                         <a class="btn btn-xs btn-primary mt-n3" href="#">{{ project.cause.name }} </a>
                         <h4 class="mt-3">
-                            <a asp-controller="Projects" href="#">
+                            <a href="{% url "projects:view" project.id %}">
                                 {{ project.title}}
                             </a>
                         </h4>

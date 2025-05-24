@@ -1,0 +1,33 @@
+<div class="modal fade" id="saveAssignmentModal" tabindex="-1" aria-labelledby="saveAssignmentModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="saveAssignmentModalLabel">Save Assignment</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="save-assignment-form" method="post" action="{% url "project-management:assignment_create" project_id %}">
+                    {% csrf_token %}
+                    <div class="form-group mb-3">
+                        <label for="{{ form.task.id_for_label }}" class="form-label">Task</label>
+                        {{ form.task }}
+                        {% if form.task.errors %}
+                            <div class="text-danger">{{ form.task.errors }}</div>
+                        {% endif %}
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="{{ form.location.id_for_label }}" class="form-label">Location</label>
+                        {{ form.location }}
+                        {% if form.location.errors %}
+                            <div class="text-danger">{{ form.location.errors }}</div>
+                        {% endif %}
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" form="save-assignment-form" class="btn btn-primary">Save</button>
+                <button type="button" class="btn btn-light-danger" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

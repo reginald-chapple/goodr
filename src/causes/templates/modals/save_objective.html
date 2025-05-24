@@ -1,0 +1,40 @@
+<div class="modal fade" id="saveObjectiveModal" tabindex="-1" aria-labelledby="saveObjectiveModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="saveObjectiveModalLabel">Save Objective</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="save-objective-form" method="post" action="{% url "project-management:objective_create" project_id %}">
+                    {% csrf_token %}
+                    <div class="form-group mb-3">
+                        <label for="{{ form.description.id_for_label }}" class="form-label">Description</label>
+                        {{ form.description }}
+                        {% if form.description.errors %}
+                            <div class="text-danger">{{ form.description.errors }}</div>
+                        {% endif %}
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="{{ form.target_value.id_for_label }}" class="form-label">Target Value</label>
+                        {{ form.target_value }}
+                        {% if form.target_value.errors %}
+                            <div class="text-danger">{{ form.target_value.errors }}</div>
+                        {% endif %}
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="{{ form.unit_of_measurement.id_for_label }}" class="form-label">Unit of Measurement</label>
+                        {{ form.unit_of_measurement }}
+                        {% if form.unit_of_measurement.errors %}
+                            <div class="text-danger">{{ form.unit_of_measurement.errors }}</div>
+                        {% endif %}
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" form="save-objective-form" class="btn btn-primary">Save</button>
+                <button type="button" class="btn btn-light-danger" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

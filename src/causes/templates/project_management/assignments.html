@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block title %}
-Project Objectives Management
+Project Assignment Management
 {% endblock title %}
 
 {% block content %}
@@ -13,14 +13,14 @@ Project Objectives Management
                 <div class="col-lg-3">
                     {% include "partials/_projectnav.html" %}
                 </div>
-                
+
                 <div class="col-lg-9 vstack gap-4">
                     <div class="card h-100">
                         <div class="card-header d-sm-flex align-items-center text-center justify-content-sm-between border-0 pb-0">
                             <h1 class="h4 card-title">Objectives</h1>
                             <!-- modal button -->
-                            <a class="btn btn-complementary-soft" href="#" data-bs-toggle="modal" data-bs-target="#saveObjectiveModal">
-                                <i class="fa-solid fa-plus pe-1"></i> Add objective
+                            <a class="btn btn-complementary-soft" href="#" data-bs-toggle="modal" data-bs-target="#saveAssignmentModal">
+                                <i class="fa-solid fa-plus pe-1"></i> Add Assignment
                             </a>
                         </div>
 
@@ -29,28 +29,24 @@ Project Objectives Management
                                 <table class="table">
                                     <thead>
                                         <tr>
-                                            <th scope="col" class="text-muted">Objective</th>
+                                            <th scope="col" class="text-muted">Assignment</th>
                                             <th class="min-w-125px text-muted">Status</th>
                                             <th class="text-end text-muted">Actions</th>
                                         </tr>
                                     </thead>
-                                    <tbody id="objectives-list">
-                                        {% for objective in project.objectives.all %}
+                                    <tbody id="assignments-list">
+                                        {% for assignment in project.assignments.all %}
                                         <tr>
                                             <td>
                                                 <div class="d-flex align-items-center">
                                                     <a href="#" class="fs-6 fw-bolder text-decoration-none mt-1">
-                                                        {{ objective.description }}
+                                                        {{ assignment.task }}
                                                     </a>
                                                 </div>
                                             </td>
                                             <td>
                                                 <span class="text-muted fw-bold fs-6 d-block mt-1">
-                                                    {% if objective.is_complete %}
-                                                        Complete
-                                                    {% else %}
-                                                        Incomplete
-                                                    {% endif %}
+                                                    {{ assignment.status }}
                                                 </span>
                                             </td>
                                             <td class="pe-0 text-end">
@@ -62,7 +58,7 @@ Project Objectives Management
                                         {% empty %}
                                         <tr>
                                             <td colspan="4" class="text-center">
-                                                No objectives available.
+                                                No assignments available.
                                             </td>
                                         </tr>
                                         {% endfor %}
@@ -76,5 +72,5 @@ Project Objectives Management
         </div>
     </main>
 
-    {% include "modals/save_objective.html" with form=form project_id=project.id %}
+    {% include "modals/save_assignment.html" with form=form project_id=project.id %}
 {% endblock content %}

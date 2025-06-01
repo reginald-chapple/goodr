@@ -171,7 +171,11 @@
                         <a class="nav-link btn icon-md p-0" href="#" id="profileDropdown" role="button"
                             data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown"
                             aria-expanded="false">
-                            <img class="avatar-img rounded-2" src="{{ request.user.photo.url }}" alt="">
+                            {% if request.user.photo %}
+                                <img class="avatar-img rounded-2" src="{{ request.user.photo.url }}" alt="">
+                            {% else %}
+                                <img class="avatar-img rounded-2" src="{% static "default.jpg" %}" alt="">
+                            {% endif %}
                         </a>
                         <ul class="dropdown-menu dropdown-animation dropdown-menu-end pt-3 small me-md-n3"
                             aria-labelledby="profileDropdown">
@@ -179,10 +183,11 @@
                             <li class="px-3">
                                 <div class="d-flex align-items-center position-relative">
                                     <!-- Avatar -->
-                                    <div class="avatar me-3">
-                                        <img class="avatar-img rounded-circle"
-                                            src="{{ request.user.photo.url }}" alt="avatar">
-                                    </div>
+                                    {% if request.user.photo %}
+                                        <img class="avatar-img rounded-2" src="{{ request.user.photo.url }}" alt="">
+                                    {% else %}
+                                        <img class="avatar-img rounded-2" src="{% static "default.jpg" %}" alt="">
+                                    {% endif %}
                                     <div>
                                         <a class="h6 stretched-link" href="#">{{ request.user.name }}</a>
                                         <p class="small m-0">{{ request.user.username }}</p>
@@ -287,7 +292,12 @@
                             <li class="dropdown-divider"></li>
                             <li>
                                 <a class="dropdown-item bg-danger-soft-hover" href="{% url "login" %}">
-                                    <i class="bi bi-power fa-fw me-2"></i>Login
+                                    <i class="bi bi-app fa-fw me-2"></i>Login
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item bg-danger-soft-hover" href="{% url "register" %}">
+                                    <i class="bi bi-app-indicator fa-fw me-2"></i>Register
                                 </a>
                             </li>
                             <li>

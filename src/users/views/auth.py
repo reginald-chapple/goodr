@@ -6,14 +6,15 @@ from users.forms import CreateUserForm
 def user_registration(request):
     template_name = 'registration/signup.html'
     context = {}
-    
-    form = CreateUserForm(request.POST or None, request.FILES or None)
-    
-    if form.is_valid():
-        form.save()
-        return redirect("home")
-    
-    context["form"] = form
+
+    if request.method == 'POST':
+        form = CreateUserForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+    else:
+        form = CreateUserForm()
+    context['form'] = form
     return render(request, template_name, context)
 
 def logout_view(request):

@@ -17,11 +17,20 @@
                                 <div class="card card-body">
                                     <div class="d-flex mb-3">
                                         <!-- Avatar -->
-                                        <div class="avatar avatar-xs me-2">
-                                            <a href="#">
-                                                <img class="avatar-img rounded-circle" src="{{ project.created_by.photo.url }}" alt="">
-                                            </a>
-                                        </div>
+                                        {% if request.user.photo %}
+                                            <div class="avatar avatar-xs me-2">
+                                                <a href="#">
+                                                    <img class="avatar-img rounded-circle" src="{{ project.created_by.photo.url }}" alt="">
+                                                </a>
+                                            </div>
+                                            {% else %}
+                                            <div class="avatar avatar-xs me-2">
+                                                <a href="#">
+                                                    <img class="avatar-img rounded-circle" src="{% static "default.jpg" %}" alt="">
+                                                </a>
+                                            </div>
+                                         {% endif %}
+
                                         <!-- Post input -->
                                         <form class="w-100">
                                             <input class="form-control pe-4 border-0" placeholder="Share your thoughts..."

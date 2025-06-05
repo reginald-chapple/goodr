@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}
+Upload Photo
+{% endblock title %}
+
+{% block content %}
+<main>
+    <div class="container">
+        <div class="row justify-content-center align-items-center vh-100 py-5">
+            <div class="col-sm-10 col-md-8 col-lg-7 col-xl-6 col-xxl-5">
+                <div class="card card-body text-center p-4 p-sm-5">
+                    <h1 class="mb-2">Upload Photo</h1>
+                    <p class="mb-0">Don't have an account?<a href="{% url "register" %}"> Click here to sign up</a></p>
+
+                    <form class="mt-sm-4" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="mb-3 input-group-lg">
+                            {{ form.photo.errors }}
+                            {{ form.photo }}
+                        </div>
+                        <div class="d-grid"><button type="submit" class="btn btn-lg btn-primary">Upload</button></div>
+
+                        <p class="mb-0 mt-3">
+                            &copy;2025 <a target="_blank" href="#">Coalesce Community Action Network</a> All rights reserved
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock content %}

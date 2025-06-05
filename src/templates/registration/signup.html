@@ -15,7 +15,7 @@ Register
                     <h1 class="mb-2">Sign up</h1>
                     <p class="mb-0">Already have an account?<a href="{% url "login" %}"> Click here to sign in</a></p>
 
-                    <form class="mt-sm-4" action="{% url "register" %}" method="POST" novalidate encrypt="multipart/form-data">
+                    <form class="mt-sm-4" action="{% url "register" %}" method="POST" novalidate enctype="multipart/form-data">
                         {% csrf_token %}
                         <div class="mb-3 input-group-lg">
                             {{ form.username.errors }}
@@ -28,6 +28,10 @@ Register
                         <div class="mb-3 input-group-lg">
                             {{ form.email.errors }}
                             {{ form.email }}
+                        </div>
+                        <div class="mb-3 input-group-lg">
+                            {{ form.photo.errors }}
+                            {{ form.photo }}
                         </div>
                         <div class="mb-3 input-group-lg">
                             {{ form.password1.errors }}

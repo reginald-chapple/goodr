@@ -6,7 +6,8 @@ from django.urls import include, path
 # from users.apis import user_collection, user_data
 from users.views import (
     logout_view,
-    user_registration
+    user_registration,
+    upload_photo,
 )
 
 urlpatterns = [
@@ -17,8 +18,7 @@ urlpatterns = [
     #     path('api/token/', TokenObtainPairView.as_view(), name='obtain_token'),
     #     path('api/token/refresh/', TokenRefreshView.as_view(), name='refresh_token'),
     # ], 'auth_api'))),
-    #  path('api/users/', include(([
-    #     path('', user_collection, name='collection'),
-    #     path('<uuid:id>/', user_detail, name='data'),
-    # ], 'users_api'))),
+     path('members/', include(([
+        path('upload-photo/', upload_photo, name='upload_photo'),
+    ], 'members'))),
 ]

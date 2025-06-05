@@ -1,0 +1,23 @@
+<div class="modal fade" id="deleteObjectiveModal" tabindex="-1" aria-labelledby="deleteObjectiveModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="deleteObjectiveModalLabel">Delete Objective</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="text-center mb-3">
+                    <h2>Are you sure you want to delete this objective?</h2>
+                    <p>This action cannot be undone.</p>
+                    <form id="delete-objective-form" method="post" action="{% url "objectives:delete" objective_id %}">
+                        {% csrf_token %}
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" form="delete-objective-form" class="btn btn-danger">Delete</button>
+                <button type="button" class="btn btn-complementary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
